@@ -1,11 +1,11 @@
 import { cp, access } from 'fs/promises';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const copy = async () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
-  const currentFolder = `${__dirname}/files`;
+  const currentFolder = join(__dirname, 'files');
 
   try {
     await access(currentFolder);
